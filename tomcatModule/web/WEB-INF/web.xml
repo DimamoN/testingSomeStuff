@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <!--Welcome-->
+    <servlet>
+        <servlet-name>Welcome Screen</servlet-name>
+        <servlet-class>simpletest.servlets.HelloServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Welcome Screen</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+    <!--How Are You-->
+    <servlet>
+        <servlet-name>How Are You</servlet-name>
+        <servlet-class>simpletest.servlets.HowAreYouServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>How Are You</servlet-name>
+        <url-pattern>/how/are</url-pattern>
+    </servlet-mapping>
+
+    <!--Filter-->
+    <filter>
+        <filter-name>Log Filter</filter-name>
+        <filter-class>simpletest.filters.LogFilter</filter-class>
+
+        <init-param>
+            <param-name>justString</param-name>
+            <param-value>happy param</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>Log Filter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
+
+</web-app>
